@@ -54,7 +54,7 @@ class ReviewRepositoryTests {
         List<Review> result = reviewRepository.findByMovie(movie);
 
         result.forEach(moviereview->{
-            System.out.println(moviereview.getReivewernum());
+            System.out.println(moviereview.getReviewnum());
             System.out.println(moviereview.getGrade());
             System.out.println(moviereview.getText());
             System.out.println(moviereview.getMember().getEmail());

@@ -43,6 +43,10 @@ dependencies {
     // server
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
+    // thumbnailator
+    // https://mvnrepository.com/artifact/net.coobird/thumbnailator
+    implementation group: 'net.coobird', name: 'thumbnailator', version: '0.4.16'
+
 }
 
 tasks.named('test') {

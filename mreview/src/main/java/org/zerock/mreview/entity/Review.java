@@ -6,23 +6,29 @@ import javax.persistence.*;
 
 @Entity
 @Builder
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 @ToString(exclude = {"movie", "member"})
 public class Review extends BaseEntity {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long reviewnum;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long reivewernum;
+  @ManyToOne(fetch = FetchType.LAZY)
+  private Movie movie;
 
-    @ManyToOne // review를 기준 : 영화 하나에 리뷰 여러개
-    private Movie movie;
+  @ManyToOne(fetch = FetchType.LAZY)
+  private Member member;
 
-    @ManyToOne // review기준 : 여러 리뷰를 멤버 한명이 사용 가능
-    private  Member member;
+  private int grade;
+  private String text;
 
-    private int grade;
-    private String text;
+  public void changeGrade(int grade) {
+    this.grade = grade;
+  }
 
+  public void changeText(String text) {
+    this.text = text;
+  }
 }
