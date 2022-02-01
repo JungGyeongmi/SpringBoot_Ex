@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{layout/basic :: setContent(~{::content})}">
+  <th:block th:fragment="content">
+    <h1>Movie List Page
+      <span>
+        <a th:href="@{/movie/register}">
+          <button type="button" class="btn btn-outline-primary">
+            Register
+          </button>
+        </a>
+      </span>
+    </h1>
+    <form th:action="@{/movie/list}" method="get" id="searchForm">
+      <div class="input-group">
+        <input type="hidden" name="page" value="1">
+        <div class="input-group-prepend">
+          <select class="form-control custom-select" name="type">
+            <option th:selected="${pageRequestDTO.type == null}">-------</option>
+            <option value="t" th:selected="${pageRequestDTO.type == 't'}">제목</option>
+          </select>
+        </div>
+        <input id="srch" name="keyword" th:value="${pageRequestDTO.keyword}" class="form-control">
+        <div class="input-group-append" id="button-addon4">
+          <button class="btn btn-outline-secondary searchBtn" type="button">Search</button>
+          <button class="btn btn-outline-secondary clearBtn" type="button">Clear</button>
+        </div>
+      </div>
+    </form>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title & Picture</th>
+          <th scope="col">Review Count</th>
+          <th scope="col">AVG Rating</th>
+          <th scope="col">Regdate</th>
+        </tr>
+      </thead>
+      <style>
+        .tr-list {
+          cursor: pointer
+        }
+
+        .tr-list:hover {
+          background-color: #d6e7ff;
+        }
+      </style>
+      <tbody>
+        <tr th:data-type="${pageRequestDTO.type}" 
+            th:data-keyword="${pageRequestDTO.keyword}"
+            th:each="dto : ${result.dtoList}" 
+            th:onclick="'location.href=\''+ @{/movie/read(mno=${dto.mno}, 
+                        page=${result.page},type=${pageRequestDTO.type}, 
+                        keyword=${pageRequestDTO.keyword})} + '\''" class="tr-list">
+            <!--/* th:onclick="'location.href=\''+ @{/movie/read(mno=${dto.mno},page=${result.page},'this.getAttribute('data-type')',this.getAttribute('Data-keyworld')} + '\''"> */-->
+            <th scope="row">[[${dto.mno}]]</th>
+            <td><img th:if="${dto.imageDTOList.size() > 0 && dto.imageDTOList[0].path != null}"
+              th:src="|@{/display}?fileName=${dto.imageDTOList[0].getThumbnailURL()}|">[[${dto.title}]]</td>            <td><b>[[${dto.reviewCnt}]]</b></td>
+            <td><b>[[${dto.avg}]]</b></td>
+            <td>[[${#temporals.format(dto.regDate, 'yyyy/MM/dd')}]]</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul class="pagination h-100 justify-content-center align-items-center">
+      <li class="page-item " th:if="${result.prev}">
+        <a class="page-link" th:href="@{/movie/list(
+              page=${result.start-1},
+              type=${pageRequestDTO.type},
+              keyword=${pageRequestDTO.keyword} )}" tabindex="-1">Previous</a>
+      </li>
+      <li th:class=" 'page-item ' + ${result.page==page?'active':''} " th:each="page : ${result.pageList}">
+        <a class="page-link" th:href="@{/movie/list(
+              page=${page}, 
+              type=${pageRequestDTO.type},
+              keyword=${pageRequestDTO.keyword} )}">[[${page}]]</a>
+      </li>
+      <li class="page-item" th:if="${result.next}">
+        <a class="page-link" th:href="@{/movie/list(
+              page=${result.end+1}, 
+              type=${pageRequestDTO.type},
+              keyword=${pageRequestDTO.keyword} )}">Next</a>
+      </li>
+    </ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"></script>
+    <div id="myModal" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script th:inline="javascript">
+      /*[+
+      var msg=[[${msg}]];
+      +]*/
+
+      if (msg!="") {
+        var mno = msg.split(" ")[0];
+        var noti = msg.split(" ")[1];
+        // console.log(msg);
+        var myModal =
+          new bootstrap.Modal(document.getElementById('myModal'));
+        document.querySelector(".modal-title").textContent = noti + " 완료";
+        document.querySelector(".modal-body").innerHTML =
+          "<p>" + mno + "번글이 " + noti + "되었습니다.</p>";
+        myModal.show();
+      }
+      var searchForm = document.querySelector("#searchForm");
+      document.querySelector(".searchBtn").onclick = function () {
+        searchForm.submit();
+      }
+      document.querySelector(".clearBtn").onclick = function () {
+        var sel = document.querySelector("#searchForm select");
+        var srch = document.querySelector("#srch");
+        sel.options[0].selected = true;
+        srch.value = "";
+        searchForm.submit();
+      }
+
+    </script>
+  </th:block>
+</th:block>
