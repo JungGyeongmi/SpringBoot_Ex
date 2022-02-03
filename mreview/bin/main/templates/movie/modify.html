@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{layout/basic :: setContent(~{::content})}">
+    <th:block th:fragment="content">
+        <h1>Board Modify</h1>
+        <form id="frm" th:action="@{/board/modify}" th:method="post">
+            <input type="hidden" th:value="${pageRequestDTO.page}" name="page">
+            <input type="hidden" th:value="${pageRequestDTO.type}" name="type">
+            <input type="hidden" th:value="${pageRequestDTO.keyword}" name="keyword">
+            <div class="form-group">
+                <label for="">Bno</label>
+                <input type="text" class="form-control" name="bno" 
+                th:value="${dto.bno}" readonly>
+            </div>
+    
+            <div class="form-group">
+                <label for="">Title</label>
+                <input type="text" class="form-control" name="title" 
+                th:value="${dto.title}">
+            </div>
+            
+            <div class="form-group">
+                <label for="">Content</label>
+                <textarea class="form-control" name="content" rows="5">[[${dto.content}]]</textarea>
+            </div>
+    
+            <div class="form-group">
+                <label for="">Writer</label>
+                <input type="text" class="form-control" name="writer"
+                    th:value="${dto.writerName}" readonly>
+            </div>
+    
+            <div class="form-group">
+                <label for="">Regidate</label>
+                <input type="text" class="form-control"
+                    th:value="${#temporals.format(dto.regDate, 'yyyy/MM/dd HH:mm:ss')}" readonly/>
+            </div>
+    
+            <div class="form-group">
+                <label for="">ModDate</label>
+                <input type="text" class="form-control"
+                    th:value="${#temporals.format(dto.modDate, 'yyyy/MM/dd HH:mm:ss')}" readonly/>
+            </div>
+    
+            <button type="button" 
+                class="btn btn-primary modifyBtn">Modify</button>
+            
+            <a th:href="@{/board/list
+                (page=${pageRequestDTO.page},
+                type=${pageRequestDTO.type},
+                keyword=${pageRequestDTO.keyword})}">
+                <button type="button" class="btn btn-info listBtn">List</button>
+            </a>
+
+            <button type="submit" class="btn btn-danger removeBtn">Remove</button>
+
+        </form>
+        <script th:inline="javascript">
+            // console.log(result);
+            
+            var actionForm = document.querySelector("#frm");
+
+            var removeBtn = document.querySelector(".removeBtn"); 
+            removeBtn.onclick = function() {
+                if(confirm("삭제하시겠습니까?")) {
+                    /*[+var urlremove = [[@{/board/remove(page=${pageRequestDTO.page})}]]+]*/
+                    actionForm.setAttribute("action", urlremove);
+                    actionForm.setAttribute("method", "post");
+                    actionForm.submit();
+                }
+            }
+            
+            var modifyBtn = document.querySelector(".modifyBtn");
+            modifyBtn.onclick = function () {
+                if(confirm("수정하시겠습니까?")) {
+                    actionForm.submit();
+                }
+            }
+        </script>
+    </th:block>
+</th:block>

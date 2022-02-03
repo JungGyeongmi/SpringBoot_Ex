@@ -16,6 +16,7 @@ public class Member extends BaseEntity{
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long mid;
 
+  private String id;
   private String email;
   private String pw;
   private String nickname;
