@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" >
 <head>
     <meta charset="UTF-8">
     <title>Member</title>
 </head>
-<body>
-<h1>멤바를 위한 화면이여유</h1>
-</body>
+    <body>
+        <h1>멤바를 위한 화면이여유</h1>
+        <hr>
+        <fieldset  sec:authorize="isAuthenticated()">
+            <legend>이사람</legend>
+            <div sec:authorize="hasRole('USER')">유저 권한 가지고 있슈</div>
+            <div sec:authorize="hasRole('MANAGER')">멤버 권한 가지고 있슈</div>
+            <div sec:authorize="hasRole('ADMIN')">관리자 권한 가지고 있슈</div>
+        </fieldset>
+        <div sec:authorize="isAuthenticated()">
+            오직 권한이 있는 자만이.. 이 글을 볼 수 있슈! 지가 봤슈(⊙ˍ⊙)/
+        </div>
+<!--        <fieldset sec:authorize="isAuthenticated()">-->
+<!--            <legend>정보</legend>-->
+<!--            <legend>권한자 정보</legend>-->
+<!--                <div sec:authentication="principal.username"></div>-->
+<!--            <legend>권한</legend>-->
+<!--                <div sec:authentication="principal.authorities"></div>-->
+<!--        </fieldset>-->
+        <br>
+        @조선시대CCTV
+    </body>
 </html>

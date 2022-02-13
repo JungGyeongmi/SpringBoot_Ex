@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf" th:content="${_csrf.token}" />
+    <meta name="_csrf_header" th:content="${_csrf.headerName}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소셜 로그인 회원 비밀번호 수정</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--/* <h1>
+        민지가 해냄
+    </h1>
+    <hr>
+
+    <p>[[${authDTO.email}]]</p>
+    <p>[[${authDTO.password}]]</p>
+    <input type="hidden" th:value="${authDTO}">
+    <form th:action="@{/member/modify}" method="POST" id="sf">
+        <label for="email">email</label>
+        <input type="text" th:value="${authDTO.email}" readonly><br>
+      
+        <label for="email">pass </label>
+        <input type="text"  id="rePw" value=""><br>
+        <input type="text" id="oriPw" th:value="${authDTO.password}">
+
+        <input type="button" value="제출" name="subBtn" id="subBtn">
+        <input type="hidden" th:value="roleSet">
+    </form> */-->
+
+    <!-- <script>
+        $(function(){
+            $("input[name='subBtn']").click(function() {
+                if($("#rePw").val()==""){
+                    alert("값이 비었습니다.");
+                    $("#rePw").focus();
+                }
+                if($("#rePw").val() == $("#oriPw").val()) {  
+                    alert("이전 비밀번호와 동일합니다.");
+                    return;
+                } else {
+                    $("#sf").submit();
+                }
+            });
+        });
+    </script> -->
+
+    <h1>Member Modify Page</h1>
+    <hr>
+    <div class="container" th:fragment="content">
+        <form class="form-signin" method="post" th:action="@{/member/modify}">
+            <p>
+                <label for="email" class="sr-only">email</label>
+                <input type="text" id="email" name="email" class="form-control" placeholder="email" required
+                    th:value="${auth.email}" readonly>
+                <input type="hidden" name="username" th:value="${auth.username}">
+                <input type="hidden" name="fromSocial" th:value="${auth.fromSocial}">
+
+            </p>
+            <p>
+                <label for="name" class="sr-only">Name</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Name" required
+                    th:value="${auth.name}" autofocus>
+            </p>
+            <p>
+            <label for="name" class="sr-only">AuthPASS</label>
+            <input type="text" id="pass" name="name" class="form-control" placeholder="Pass" required
+                   th:value="${auth.password}" autofocus>
+             </p>
+            <p>
+                <label for="name" class="sr-only">MemberPASS</label>
+                <input type="text" name="memberPassword" th:value="${member.password}">
+            </p>
+            <p th:each="role : ${roleNames}">
+                <input type="hidden" name="roleSet" th:value="${role}">
+            </p>
+            <p>
+                <label for="password" class="sr-only">Password</label><br>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                    required><br>
+                <input type="password" id="repassword" name="repassword" class="form-control" placeholder="rePassword"
+                    required>
+            </p>
+            <button id="submitBtn" class="btn btn-lg btn-primary btn-block" type="button">Sign in</button>
+            <button class="btn btn-lg btn-info btn-block" type="button" th:onclick="joinGo()">Join us</button>
+            <p><span id="notice"></span></p>
+
+        </form>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var token = document.querySelector("meta[name='_csrf']")
+                .getAttribute("content");
+            var header = document.querySelector(
+                "meta[name='_csrf_header']").getAttribute("content");
+            console.log(token + "\n" + header);
+            var submitBtn = document.querySelector("#submitBtn");
+            var pass = document.querySelector("#password");
+            var repass = document.querySelector("#repassword");
+            var notice = document.querySelector("#notice");
+            submitBtn.onclick = function (event) {
+                event.preventDefault();
+                if (pass.value == "") {
+                    notice.innerHTML = "비밀번호를 확인하여 주세요.";
+                    pass.focus();
+                    return;
+                }
+                if (repass.value == "") {
+                    notice.innerHTML = "비밀번호 재입력을 확인하여 주세요.";
+                    repass.focus();
+                    return;
+                }
+                if (pass.value != repass.value) {
+                    notice.innerHTML = "비밀번호가 일치하지 않습니다.";
+                    pass.value = ""; repass.value = "";
+                    pass.focus();
+                    return;
+                }
+                document.querySelector(".form-signin").submit();
+            }
+        }
+
+    </script>
+</body>
+
+</html>

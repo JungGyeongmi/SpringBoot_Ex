@@ -19,33 +19,35 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class ClubUserDetailsService implements UserDetailsService {
+    // UserDetailsService : JPA와 Spring Security를 연결하는 객체
 
     private final ClubMemberRepository clubMemberRepository;
-
+    /*
+     loadUserByUsername:
+     매개변수 username을 가져와서 JPA로 가서 username이 있는지 여부를 확인하는 메서드
+     리턴타입은 UserDetails (회원정보)
+    */
     @Override
-    public UserDetails loadUserByUsername(String username) throws  UsernameNotFoundException {
-        log.info("ClubUserDetailsService loadUserByUsername " + username);
-
-        Optional<ClubMember> result = clubMemberRepository.findByEmail(username, false);
-
-        if(result.isPresent()) {
-            throw new UsernameNotFoundException("Check Email or Social ");
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        log.info("ClubUserDetailsService loadUserByUsername:"+username);
+        Optional<ClubMember> result =
+                clubMemberRepository.findByEmail(username);
+        if(!result.isPresent()) {
+            throw new UsernameNotFoundException("Check Email or Social");
         }
         ClubMember clubMember = result.get();
         log.info("-----------------------------------------------------------");
-        log.info(clubMember);.
-        ClubAuthMemberDTO clubAuthMember = new ClubAuthMemberDTO(
-                clubMember.getEmail(),
-                clubMember.getPassword(),
-                clubMember. isFromSocial(),
-                clubMember.getRoleSet().stream()
-                        .map(role -> new SimpleGrantedAuthority
-                                ("ROLE_"+role.name())).collect(Collectors.toSet())
+        log.info("clubMember: "+clubMember);
+        ClubAuthMemberDTO clubAuthMemberDTO = new ClubAuthMemberDTO(
+                clubMember.getEmail(), clubMember.getPassword(),
+                clubMember.isFromSocial(),
+                clubMember.getRoleSet().stream().map(
+                                role -> new SimpleGrantedAuthority("ROLE_"+role.name()))
+                        .collect(Collectors.toSet())
         );
-
-        clubAuthMember.setName(clubMember.getName());
-        clubAuthMember.setFromSocial(clubMember.isFromSocial());
-        return clubAuthMember;
+        clubAuthMemberDTO.setName(clubMember.getName());
+        clubAuthMemberDTO.setFromSocial(clubMember.isFromSocial());
+        return clubAuthMemberDTO;
     }
 
 }
