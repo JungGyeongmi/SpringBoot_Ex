@@ -30,23 +30,23 @@ class MovieRepositoryTests {
     @Commit
     @Transactional
     @Test
-    public void insertMovies(){
+    public void insertMovies() {
 
-        IntStream.rangeClosed(1, 100).forEach(i->{
+        IntStream.rangeClosed(1, 100).forEach(i -> {
 
-            Movie movie = Movie.builder().title("movie Title..."+i).build();
+            Movie movie = Movie.builder().title("movie Title..." + i).build();
 
             movieRepository.save(movie);
 
             System.out.println("---------------------------");
 
-            int count = (int)(Math.random()*5)+1; // 1 에서 5까지
+            int count = (int) (Math.random() * 5) + 1; // 1 에서 5까지
 
-            for(int j =0; j<count; j++) { // 랜덤으로 돌린 수 1~5까지의 이미지가 하나의 Moive에 저장됨
+            for (int j = 0; j < count; j++) { // 랜덤으로 돌린 수 1~5까지의 이미지가 하나의 Moive에 저장됨
                 MovieImage movieImage = MovieImage.builder()
                         .uuid(UUID.randomUUID().toString()) // 고유한 UUID를 랜덤으로 생성하고 그 값을 String으로 변호나 후 uuid(멤버변수)에 넣어줌
                         .movie(movie)
-                        .imgName("test"+j+".jpg")
+                        .imgName("test" + j + ".jpg")
                         .build();
 
                 movieImageRepository.save(movieImage);
@@ -62,7 +62,7 @@ class MovieRepositoryTests {
 
         Page<Object[]> result = movieRepository.getListPage(pageRequest);
 
-        for(Object[] objects : result.getContent()) {
+        for (Object[] objects : result.getContent()) {
             System.out.println(Arrays.toString(objects));
         }
     }
@@ -73,7 +73,7 @@ class MovieRepositoryTests {
 
         System.out.println(result);
 
-        for(Object[] arr : result) {
+        for (Object[] arr : result) {
             System.out.println(Arrays.toString(arr));
         }
     }

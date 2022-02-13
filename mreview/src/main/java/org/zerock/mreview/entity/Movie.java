@@ -14,8 +14,8 @@ import javax.persistence.Id;
 @Getter
 @ToString
 public class Movie extends BaseEntity {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long mno;
-  private String title;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long mno;
+    private String title;
 }

@@ -23,8 +23,8 @@ class MemoRepositoryTests {
 
     @Test
     public void testInsertDummies() {
-        IntStream.rangeClosed(1, 100).forEach(i->{
-            Memo memo = Memo.builder().memoText("Sample..."+i).build();
+        IntStream.rangeClosed(1, 100).forEach(i -> {
+            Memo memo = Memo.builder().memoText("Sample..." + i).build();
             memoRepository.save(memo);
         });
     }
@@ -38,7 +38,7 @@ class MemoRepositoryTests {
 
         System.out.println("------------------");
 
-        if(result.isPresent()) {
+        if (result.isPresent()) {
             Memo memo = result.get();
             System.out.println(memo);
         }
@@ -99,7 +99,7 @@ class MemoRepositoryTests {
         System.out.println(result.isFirst());  // 시작 페이지(0) 여부
         System.out.println("-------------------------------");
 
-        for(Memo memo : result.getContent()) System.out.println(memo);
+        for (Memo memo : result.getContent()) System.out.println(memo);
     }
 
     @Test
@@ -109,7 +109,7 @@ class MemoRepositoryTests {
         Pageable pageable = PageRequest.of(0, 10, sort1);
         Page<Memo> result = memoRepository.findAll(pageable);
 
-        result.get().forEach(memo->{
+        result.get().forEach(memo -> {
             System.out.println(memo);
         });
 
@@ -133,7 +133,7 @@ class MemoRepositoryTests {
     public void testQueryMethods() {
         List<Memo> list = memoRepository.findByMnoBetweenOrderByMnoDesc(70L, 80L);
 
-        for(Memo memo : list) {
+        for (Memo memo : list) {
             System.out.println(memo);
         }
     }

@@ -15,19 +15,21 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class ReviewRepositoryTests {
 
-    @Autowired MovieRepository movieRepository;
-    @Autowired ReviewRepository reviewRepository;
+    @Autowired
+    MovieRepository movieRepository;
+    @Autowired
+    ReviewRepository reviewRepository;
 
     @Test
     public void insertReview() {
 
 
-        IntStream.rangeClosed(1,200).forEach(i->{
+        IntStream.rangeClosed(1, 200).forEach(i -> {
             // 영화 번호
-            Long mno = (long)(Math.random()*100)+1;
+            Long mno = (long) (Math.random() * 100) + 1;
 
             // 리뷰어 번호
-            Long mid = (long)(Math.random()*100)+1;
+            Long mid = (long) (Math.random() * 100) + 1;
 
             Movie movie = Movie.builder()
                     .mno(mno)
@@ -36,10 +38,10 @@ class ReviewRepositoryTests {
             Member member = Member.builder().mid(mid).build();
 
             Review review = Review.builder()
-                    .grade((int)(Math.random()*5)+1)
+                    .grade((int) (Math.random() * 5) + 1)
                     .member(member)
                     .movie(movie)
-                    .text(i+"film review")
+                    .text(i + "film review")
                     .build();
 
             reviewRepository.save(review);
@@ -53,7 +55,7 @@ class ReviewRepositoryTests {
 
         List<Review> result = reviewRepository.findByMovie(movie);
 
-        result.forEach(moviereview->{
+        result.forEach(moviereview -> {
             System.out.println(moviereview.getReviewnum());
             System.out.println(moviereview.getGrade());
             System.out.println(moviereview.getText());

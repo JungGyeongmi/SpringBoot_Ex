@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cdef3d12-7644-4ca0-9df1-e9cd78370775" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex1/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ex1/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex1/src/main/java/org/zerock/ex1/Ex1Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex1/src/main/java/org/zerock/ex1/Ex1Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex1/src/main/java/org/zerock/ex1/ServletInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex1/src/main/java/org/zerock/ex1/ServletInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex1/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ex1/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex1/src/test/java/org/zerock/ex1/Ex1ApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex1/src/test/java/org/zerock/ex1/Ex1ApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex2/src/main/java/org/zerock/ex2/entity/Memo.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex2/src/main/java/org/zerock/ex2/entity/Memo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex2/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ex2/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex2/src/test/java/org/zerock/ex2/repository/MemoRepositoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex2/src/test/java/org/zerock/ex2/repository/MemoRepositoryTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex3/src/main/java/org/zerock/ex3/controller/SampleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex3/src/main/java/org/zerock/ex3/controller/SampleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex3/src/main/java/org/zerock/ex3/dto/SampleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex3/src/main/java/org/zerock/ex3/dto/SampleDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex3/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ex3/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex3/src/main/resources/templates/sample/ex1.html" beforeDir="false" afterPath="$PROJECT_DIR$/ex3/src/main/resources/templates/sample/ex1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex3/src/main/resources/templates/sample/ex2.html" beforeDir="false" afterPath="$PROJECT_DIR$/ex3/src/main/resources/templates/sample/ex2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/MreviewApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/MreviewApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/ServletInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/ServletInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/controller/MovieContoller.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/controller/MovieContoller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/controller/UploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/controller/UploadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/dto/MovieImageDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/dto/MovieImageDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/dto/PageRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/dto/PageRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/dto/PageResultDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/dto/PageResultDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/dto/UploadResultDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/dto/UploadResultDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/entity/BaseEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/entity/BaseEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/entity/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/entity/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/entity/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/entity/MovieImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/entity/MovieImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/entity/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/entity/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/repository/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/repository/MovieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/repository/MovieRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/service/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/service/MovieServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/java/org/zerock/mreview/service/MovieServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/resources/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/resources/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/resources/templates/layout/basic.html" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/resources/templates/layout/basic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/resources/templates/movie/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/resources/templates/movie/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/resources/templates/movie/modify.html" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/resources/templates/movie/modify.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/resources/templates/movie/read.html" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/resources/templates/movie/read.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/main/resources/templates/movie/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/main/resources/templates/movie/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/test/java/org/zerock/mreview/MreviewApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/test/java/org/zerock/mreview/MreviewApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/test/java/org/zerock/mreview/repository/MemberRepositoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/test/java/org/zerock/mreview/repository/MemberRepositoryTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/test/java/org/zerock/mreview/repository/MovieRepositoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/test/java/org/zerock/mreview/repository/MovieRepositoryTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mreview/src/test/java/org/zerock/mreview/repository/ReviewRepositoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/mreview/src/test/java/org/zerock/mreview/repository/ReviewRepositoryTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="250jmUOj85IJzQ8tEsWzFqIpG59" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/club" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Ex1Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="ex1" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.zerock.ex1.Ex1Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cdef3d12-7644-4ca0-9df1-e9cd78370775" name="Changes" comment="" />
+      <created>1644671062517</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1644671062517</updated>
+      <workItem from="1644671063714" duration="329000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

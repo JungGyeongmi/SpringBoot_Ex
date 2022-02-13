@@ -89,11 +89,11 @@ public class UploadController {
             String srcFileName = URLDecoder.decode(fileName, "UTF-8");
             log.info("srcfileName: " + srcFileName);
             File file = new File(uploadPath + File.separator + srcFileName);
-            log.info("uploadPath :"+ uploadPath);
-            
+            log.info("uploadPath :" + uploadPath);
+
             if (size != null && size.equals("1")) {
                 file = new File(file.getParent(), file.getName().substring(2));
-             }
+            }
 
             HttpHeaders header = new HttpHeaders();
             header.add("Content-Type", Files.probeContentType(file.toPath()));

@@ -21,7 +21,7 @@ public class SampleController {
         log.info("ex1...........................");
     }
 
-    @GetMapping({ "/ex2", "exLink" })
+    @GetMapping({"/ex2", "exLink"})
     public void ex2(Model model) {
         log.info("ex2...........................");
         List<SampleDTO> list = IntStream.rangeClosed(1, 20).asLongStream().mapToObj(i -> {

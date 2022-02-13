@@ -9,8 +9,8 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class UploadResultDTO implements Serializable{
-    
+public class UploadResultDTO implements Serializable {
+
     private String fileName;
     private String uuid;
     private String folderPath;
@@ -18,7 +18,7 @@ public class UploadResultDTO implements Serializable{
     public String getImageURL() {
         try {
             return URLEncoder.
-                encode(folderPath+"/"+uuid+"_"+fileName, "UTF-8");
+                    encode(folderPath + "/" + uuid + "_" + fileName, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -28,7 +28,7 @@ public class UploadResultDTO implements Serializable{
     public String getThumbnailURL() {
         try {
             return URLEncoder.
-                encode(folderPath+"/s_"+uuid+"_"+fileName, "UTF-8");
+                    encode(folderPath + "/s_" + uuid + "_" + fileName, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

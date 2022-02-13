@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name ="tbl_memo")
+@Table(name = "tbl_memo")
 @ToString
 @Getter
 @Builder
@@ -16,7 +16,7 @@ public class Memo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long mno;
 
-    @Column(length= 200, nullable = false)
+    @Column(length = 200, nullable = false)
     private String memoText;
 
 

@@ -13,18 +13,18 @@ import static org.junit.jupiter.api.Assertions.*;
 class MemberRepositoryTests {
 
     @Autowired
-    private  MemberRepository memberRepository;
+    private MemberRepository memberRepository;
 
 
     @Test
     public void insertReviewers() {
-        IntStream.rangeClosed(1, 100).forEach(i-> {
+        IntStream.rangeClosed(1, 100).forEach(i -> {
 
             Member member = Member.builder()
-                    .id("user"+i)
+                    .id("user" + i)
                     .pw("0426")
-                    .email("rr"+i+"@org.zero.ck")
-                    .nickname("reviewer"+i)
+                    .email("rr" + i + "@org.zero.ck")
+                    .nickname("reviewer" + i)
                     .build();
 
             memberRepository.save(member);

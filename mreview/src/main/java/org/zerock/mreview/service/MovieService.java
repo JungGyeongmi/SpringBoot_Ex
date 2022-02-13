@@ -45,7 +45,7 @@ public interface MovieService {
     }
 
     default MovieDTO entitiesToDTO(Movie movie, List<MovieImage> movieImages,
-            Double avg, Long reviewCnt) {
+                                   Double avg, Long reviewCnt) {
         MovieDTO movieDTO = MovieDTO.builder()
                 .mno(movie.getMno())
                 .title(movie.getTitle())

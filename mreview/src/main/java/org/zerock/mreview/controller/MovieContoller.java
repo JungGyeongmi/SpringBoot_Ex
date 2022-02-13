@@ -30,7 +30,7 @@ public class MovieContoller {
     public String register(MovieDTO movieDTO, RedirectAttributes ra) {
         log.info("movieDTO : " + movieDTO);
         Long mno = movieService.register(movieDTO);
-        ra.addFlashAttribute("msg", mno+" 등록");
+        ra.addFlashAttribute("msg", mno + " 등록");
         return "redirect:/movie/list";
     }
 
@@ -40,9 +40,9 @@ public class MovieContoller {
         model.addAttribute("result", movieService.getList(pageRequestDTO));
     }
 
-    @GetMapping({"/read","/modify"})
+    @GetMapping({"/read", "/modify"})
     public void read(Long mno, PageRequestDTO pageRequestDTO, Model model) {
-        log.info("pageRequestDTO: " + pageRequestDTO);     
+        log.info("pageRequestDTO: " + pageRequestDTO);
         MovieDTO movieDTO = movieService.getMovie(mno);
         model.addAttribute("pageRequestDTO", pageRequestDTO);
         model.addAttribute("dto", movieDTO);

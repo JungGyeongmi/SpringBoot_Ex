@@ -3,9 +3,18 @@
 <th:block th:replace="~{layout/basic :: setContent(~{::content})}">
     <th:block th:fragment="content">
         <style>
-            a {text-decoration: none;}
-            .card-body { border-radius: 30px; margin-bottom: 10px;}
-            .card-body:hover{ box-shadow: black 1px 1px 2px; }
+            a {
+                text-decoration: none;
+            }
+
+            .card-body {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+
+            .card-body:hover {
+                box-shadow: black 1px 1px 2px;
+            }
         </style>
 
         <h1>
@@ -15,43 +24,43 @@
         <div class="form-group">
             <label>Mno</label>
             <input type="text" class="form-control" name="mno"
-                th:value="${dto.mno}" readonly>
+                   th:value="${dto.mno}" readonly>
         </div>
         <div class="form-group">
             <label>Title</label>
             <input type="" class="form-control" rows="5" name="title"
-                th:value="${dto.title}" readonly></input>
+                   th:value="${dto.title}" readonly></input>
         </div>
         <div class="form-group">
             <label>ReviewCount</label>
             <input type="" class="form-control" rows="5" name="title"
-                th:value="${dto.reviewCnt}" readonly></input>
+                   th:value="${dto.reviewCnt}" readonly></input>
         </div>
         <div class="form-group">
             <label>Avg</label>
             <input type="text" class="form-control" name="writer"
-                th:value="${dto.avg}" readonly />
+                   th:value="${dto.avg}" readonly/>
         </div>
         <div class="form-group">
             <label>RegDate</label>
             <input type="text" class="form-control" name="regDate"
-                th:value="${#temporals.format(dto.regDate, 'yyyy/MM/dd HH:mm:ss')}" readonly />
+                   th:value="${#temporals.format(dto.regDate, 'yyyy/MM/dd HH:mm:ss')}" readonly/>
         </div>
         <div class="form-group">
             <label>ModDate</label>
             <input type="text" class="form-control" name="modDate"
-                th:value="${#temporals.format(dto.modDate, 'yyyy/MM/dd HH:mm:ss')}" readonly />
+                   th:value="${#temporals.format(dto.modDate, 'yyyy/MM/dd HH:mm:ss')}" readonly/>
         </div>
 
         <div class="uploadResult">
             <ul>
                 <li th:if="!${dto.imageDTOList.isEmpty()}" th:each="movieImage : ${dto.imageDTOList}">
-                    <img th:if="${movieImage.path != null}" 
-                        th:src="|@{'/display'}?fileName=${movieImage.getThumbnailURL()}|">
+                    <img th:if="${movieImage.path != null}"
+                         th:src="|@{'/display'}?fileName=${movieImage.getThumbnailURL()}|">
                 </li>
             </ul>
         </div>
-        
+
         <a th:href="@{/board/modify(mno=${dto.mno},
                     page=${ pageRequestDTO.page },
                     type=${ pageRequestDTO.type },
@@ -66,7 +75,7 @@
 
         <div>
             <div class="mt-4">
-                <h5><span class="badge btn-warning addReply">Add Reply</span> </h5>
+                <h5><span class="badge btn-warning addReply">Add Reply</span></h5>
                 <h5>
                     <span class="badge btn-warning replyCount"> Reply Count [[ ${ dto.reviewCnt } ]] </span>
                 </h5>
@@ -97,7 +106,9 @@
                         <button type="button" class="btn btn-danger replyRemove">Remove</button>
                         <button type="button" class="btn btn-warning replyModify">Modify</button>
                         <button type="button" class="btn btn-primary replySave">Save</button>
-                        <button type="button" class="btn btn-outline-secondary replyClose" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-outline-secondary replyClose" data-bs-dismiss="modal">
+                            Close
+                        </button>
                     </div>
                 </div>
             </div>
@@ -105,7 +116,7 @@
 
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
         <script th:inline="javascript">
             $(document).ready(function () {
@@ -149,7 +160,7 @@
                 };
 
                 // $(".replyCount").click(function () {
-                    // loadJSONData();
+                // loadJSONData();
                 // });
                 loadJSONData();
 
@@ -166,8 +177,8 @@
                     $(".modal-title").html("댓글 입력");
                     $(".modal-footer .btn").hide(); // 모달 내의 모든 버튼을 안 보이도록
                     $(".replySave, .replyClose").show();  // 필요한 버튼들만 보이도록
-                
-                
+
+
                 });
 
                 // Reply 모달창 save 버튼 이벤트--------------------------------------
@@ -179,7 +190,7 @@
                     }
                     console.log(reply);
 
-                    if(reply.text != '' && reply.replyer != '') {
+                    if (reply.text != '' && reply.replyer != '') {
                         // Ajax
                         $.ajax({
                             url: replyUrl,
@@ -189,9 +200,9 @@
                             dataType: 'json',
                             success: function (data) {
                                 console.log(data);
-    
+
                                 var newRno = parseInt(data);
-    
+
                                 alert(newRno + "번 댓글이 등록되었습니다.")
                                 modal.modal('hide');
                                 loadJSONData();
@@ -225,7 +236,7 @@
                 $(".replyRemove").on("click", function () {
 
                     var rno = $("input[name='rno']").val();  // 모달창에 보이는 댓글 번호 hidden처리되어있음
-                   
+
                     $.ajax({
                         url: replyUrl + rno,
                         method: 'delete',
@@ -247,7 +258,7 @@
                 $(".replyModify").click(function () {
 
                     var rno = $("input[name='rno']").val();
-                    console.log("rno>>>>"+ rno)
+                    console.log("rno>>>>" + rno)
                     var reply = {
                         rno: rno,
                         mno: mno,
@@ -255,7 +266,7 @@
                         replyer: $('input[name="replyer"]').val()
                     }
 
-                    console.log("reply Modify>>>>"+reply);
+                    console.log("reply Modify>>>>" + reply);
 
                     $.ajax({
                         url: replyUrl + rno,

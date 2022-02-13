@@ -6,7 +6,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-@Builder(toBuilder =true)
+@Builder(toBuilder = true)
 public class SampleDTO {
     private Long sno;
 
